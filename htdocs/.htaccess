@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^royalfree\.info [NC]
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://royalfree.info/$1 [R=301,L]
