@@ -30,6 +30,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta name="msapplication-config" content="<?php echo base_url('assets/site_favicon/browserconfig.xml'); ?>">
   <meta name="theme-color" content="#29b6f6">
 
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="<?php echo base_url('assets/css/materialize.css'); ?>" type="text/css" rel="stylesheet" media="screen,projection"/>

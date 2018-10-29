@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="spa-section container" id="about">
   <div class="row">
     <div class="col s10 offset-s1">
-      <div class="section">
+      <div class="section center">
         <h1 class="header">About New EPR</h1>
       </div>
     </div>

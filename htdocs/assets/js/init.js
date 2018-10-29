@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var ttelems = document.querySelectorAll('.tooltipped');
     var ttinstances = M.Tooltip.init(ttelems, {});
 
+    var melems = document.querySelectorAll('.modal');
+    var minstances = M.Modal.init(melems, {});
+
     window.onpopstate = function(event) {
         showSPAfromhash();
     };
@@ -22,6 +25,15 @@ document.addEventListener('DOMContentLoaded', function() {
             showSPA(z.getAttribute("data-route"));
         }
     }, false);
+
+    var ua = window.navigator.userAgent;
+    var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
+    var webkit = !!ua.match(/WebKit/i);
+    var iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
+
+    if (iOSSafari && ("standalone" in window.navigator) && !window.navigator.standalone) {
+        M.Modal.getInstance(document.getElementById("iosinstallmodal")).open();
+    }
 
     let deferredPrompt;
 
@@ -57,16 +69,64 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('serviceworker.js').then(function(registration) {
+    window.addEventListener('load', function() {
+        var swRegistration = registerServiceWorker();
+
+        // if (('PushManager' in window)) {
+        //     document.getElementById("divgetnotifications").style.display("block");
+        //     document.getElementById("btngetnotifications").addEventListener('click', function() {
+        //         askPermission();
+        //         subscribeUserToPush();
+        //     });
+        // }
+    });
+}
+
+function registerServiceWorker() {
+    return navigator.serviceWorker.register('serviceworker.js').then(function(registration) {
       // Registration was successful
       console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      return registration;
     }, function(err) {
       // registration failed :(
       console.log('ServiceWorker registration failed: ', err);
     });
-  });
 }
+
+// function askPermission() {
+//   return new Promise(function(resolve, reject) {
+//     const permissionResult = Notification.requestPermission(function(result) {
+//       resolve(result);
+//     });
+
+//     if (permissionResult) {
+//       permissionResult.then(resolve, reject);
+//     }
+//   })
+//   .then(function(permissionResult) {
+//     if (permissionResult !== 'granted') {
+//       throw new Error('We weren\'t granted permission.');
+//     }
+//   });
+// }
+
+// function subscribeUserToPush() {
+//   return navigator.serviceWorker.register('service-worker.js')
+//   .then(function(registration) {
+//     const subscribeOptions = {
+//       userVisibleOnly: true,
+//       applicationServerKey: urlBase64ToUint8Array(
+//         'BEl62iUYgUivxIkv69yViEuiBIa-Ib9-SkvMeAtA3LFgDzkrxZJjSgSnfckjBJuBkr3qBUYIHBQFLXYp5Nksh8U'
+//       )
+//     };
+
+//     return registration.pushManager.subscribe(subscribeOptions);
+//   })
+//   .then(function(pushSubscription) {
+//     console.log('Received PushSubscription: ', JSON.stringify(pushSubscription));
+//     return pushSubscription;
+//   });
+// }
 
 // Show single page app section
 function showSPA(spaname) {

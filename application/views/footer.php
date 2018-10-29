@@ -1,6 +1,19 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
+<!-- iOS Install Modal -->
+  <div id="iosinstallmodal" class="modal bottom-sheet center">
+    <div class="modal-content">
+      <h4>Install on iOS</h4>
+      <p>Tap on Share:</p>
+      <img src="assets/img/ios-share.svg" style="height: 25px;" />
+      <hr />
+      <p>Then tap Add to Home Screen:</p>
+      <img src="assets/img/ios_add_to_hs.jpeg" style="height: 85px; border-radius: 2px;" /><br />
+      <i class="material-icons">arrow_downward</i>
+    </div>
+  </div>
+
   <footer class="page-footer orange">
     <div class="footer-copyright">
       <div class="container">

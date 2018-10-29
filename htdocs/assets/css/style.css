@@ -69,3 +69,7 @@ nav.stylewithinstallprompt {
 	top: 84px;
     position: relative;
 }
+
+div#iosinstallmodal.modal .modal-content {
+	padding-bottom: 0;
+}

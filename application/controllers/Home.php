@@ -20,6 +20,8 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
+		$this->load->library('user_agent');
+
 		$this->load->view('header');
 		$this->load->view('loading');
 		$this->load->view('home');

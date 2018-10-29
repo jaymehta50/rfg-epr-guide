@@ -167,10 +167,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="section">
             <h4>Live Updates</h4>
             <p>On go-live day regular updates will be posted here from the command teams to keep you up to date.</p>
-            <p>Click the button below to receive a live notification with each update:</p>
           </div>
-          <div class="section center">
-            <a class="waves-effect waves-light btn disabled"><i class="material-icons left">notifications_active</i>Get Notifications</a>
+          <div class="section center" id="divgetnotifications" style="display: none;">
+            <p>Click the button below to receive a live notification with each update:</p>
+            <a class="waves-effect waves-light btn disabled" id="btngetnotifications"><i class="material-icons left">notifications_active</i>Get Notifications</a>
           </div>
         </div>
 
