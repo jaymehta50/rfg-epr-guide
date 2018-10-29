@@ -30,7 +30,10 @@ var urlsToCache = [
   'assets/img/midwife.png',
   'assets/img/nurse.png',
   'assets/img/nursingassistant.png',
-  'assets/img/pharmacist.png'
+  'assets/img/pharmacist.png',
+  'assets/img/ios-share.svg',
+  'assets/img/ios_add_to_hs.jpeg',
+  'assets/img/passport.jpg'
 ];
 
 self.addEventListener('install', function(event) {
