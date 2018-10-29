@@ -49,6 +49,11 @@ div.spa-section.spa-active {
     margin-left: auto;
 }
 
+.card .card-reveal button.card-title {
+	font-size: 14px;
+	font-weight: 400;
+}
+
 table.golivetable th, table.golivetable td {
 	min-height: 59px;
 }
@@ -72,4 +77,8 @@ nav.stylewithinstallprompt {
 
 div#iosinstallmodal.modal .modal-content {
 	padding-bottom: 0;
+}
+
+div.section.readinesscards div.card-image {
+	padding-top: 10px;
 }

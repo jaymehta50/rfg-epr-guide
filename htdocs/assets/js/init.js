@@ -65,6 +65,24 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     });
 
+    if (storageAvailable('localStorage')) {
+        for (var i = 1; i <= 6; i++) {
+            if(!localStorage.getItem("readinessitem"+i)) {
+                // data not yet set
+                changeReadiness(i, false);
+                localStorage.setItem("readinessitem"+i, "false");
+            }
+            else if (localStorage.getItem("readinessitem"+i)=="false") {
+                // This item not yet done
+                changeReadiness(i, false);
+            }
+            else {
+                // This item not yet done
+                changeReadiness(i, true);
+            }
+        }
+    }
+
     showSPAfromhash();
 });
 
@@ -167,5 +185,52 @@ function showSPAfromhash() {
     }
     else {
         showSPA("home");
+    }
+}
+
+function toggleReadiness(no) {
+    changeReadiness(no, (document.getElementById("ready"+no+"yes").style.display == "none"));
+}
+
+function changeReadiness(no, activating) {
+    if (activating) {
+        document.getElementById("ready"+no+"no").style.display = "none";
+        document.getElementById("ready"+no+"yes").style.display = "block";
+        document.getElementById("btnreadiness"+no).innerHTML = "Mark as Incomplete";
+        if (storageAvailable('localStorage')) {
+            localStorage.setItem("readinessitem"+no, "true");
+        }
+    }
+    else {
+        document.getElementById("ready"+no+"yes").style.display = "none";
+        document.getElementById("ready"+no+"no").style.display = "block";
+        document.getElementById("btnreadiness"+no).innerHTML = "Mark as Complete";
+        if (storageAvailable('localStorage')) {
+            localStorage.setItem("readinessitem"+no, "false");
+        }
+    }
+}
+
+function storageAvailable(type) {
+    try {
+        var storage = window[type],
+            x = '__storage_test__';
+        storage.setItem(x, x);
+        storage.removeItem(x);
+        return true;
+    }
+    catch(e) {
+        return e instanceof DOMException && (
+            // everything except Firefox
+            e.code === 22 ||
+            // Firefox
+            e.code === 1014 ||
+            // test name field too, because code might not be present
+            // everything except Firefox
+            e.name === 'QuotaExceededError' ||
+            // Firefox
+            e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+            // acknowledge QuotaExceededError only if there's something already stored
+            storage.length !== 0;
     }
 }
