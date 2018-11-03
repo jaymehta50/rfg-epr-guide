@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, viewport-fit=cover">
   <title>RFG EPR Guide</title>
 
   <link rel="manifest" href="manifest.json">
@@ -34,16 +34,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
   <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="<?php echo base_url('assets/css/materialize.css'); ?>" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link crossorigin="anonymous" href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="<?php echo base_url('assets/css/materialize.min.css'); ?>" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="<?php echo base_url('assets/css/style.css'); ?>" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
   <div class="appinstallprompt valign-wrapper z-depth-2" id="androidinstall">
-    <p>Install this Web App: <button class="btn waves-effect waves-light pulse" id="androidprompt">Install<i class="material-icons right">play_for_work</i></button></p>
+    <div class="center" style="margin-left:auto; margin-right: auto;">
+      <p>Install this Web App: <button class="btn waves-effect waves-light pulse" id="androidprompt">Install<i class="material-icons right">play_for_work</i></button></p>
+    </div>
   </div>
+  <div id="iphonexnotchbar" class="light-blue lighten-1"></div>
   <nav class="light-blue lighten-1" role="navigation" id="navbar">
-    <div class="nav-wrapper container"><a id="logo-container" data-route="home" class="brand-logo"><img src="<?php echo base_url('assets/site_favicon/mstile-70x70.png'); ?>" /></a>
+    <div class="nav-wrapper container"><a id="logo-container" class="brand-logo"><img src="<?php echo base_url('assets/site_favicon/mstile-70x70.png'); ?>" /></a>
       <ul class="right hide-on-med-and-down">
         <li><a data-route="home">Home</a></li>
         <li><a data-route="about">About</a></li>
@@ -53,7 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </ul>
 
       <ul id="nav-mobile" class="sidenav">
-        <li><a data-route="home" class="sidenav-close"><h5>RFG EPR Guide</h5></a></li>
+        <li><a class="sidenav-close"><h5>RFG EPR Guide</h5></a></li>
         <li><div class="divider"></div></li>
         <li><a data-route="home" class="sidenav-close">Home</a></li>
         <li><a data-route="about" class="sidenav-close">About</a></li>

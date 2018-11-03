@@ -10,7 +10,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <h5 class="header col s12 light">A guide to Royal Free's new electronic patient record (EPR) software.</h5>
       </div>
       <div class="row center">
-        <a data-route="about" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a>
+        <h4>We are still in alpha-testing!</h4>
+        <a href="https://goo.gl/forms/qJKhvxfqK2HdO7Ix2" target="_blank" id="download-button" class="btn-large waves-effect waves-light orange">Submit Feedback</a>
       </div>
       <br><br>
 

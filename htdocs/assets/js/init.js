@@ -89,19 +89,11 @@ document.addEventListener('DOMContentLoaded', function() {
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
         var swRegistration = registerServiceWorker();
-
-        // if (('PushManager' in window)) {
-        //     document.getElementById("divgetnotifications").style.display("block");
-        //     document.getElementById("btngetnotifications").addEventListener('click', function() {
-        //         askPermission();
-        //         subscribeUserToPush();
-        //     });
-        // }
     });
 }
 
 function registerServiceWorker() {
-    return navigator.serviceWorker.register('serviceworker.js').then(function(registration) {
+    return navigator.serviceWorker.register('sw.js').then(function(registration) {
       // Registration was successful
       console.log('ServiceWorker registration successful with scope: ', registration.scope);
       return registration;

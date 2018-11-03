@@ -7,13 +7,13 @@
  */
 
 body {
-display: flex;
-min-height: 100vh;
-flex-direction: column;
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
 }
 
 main {
-flex: 1 0 auto;
+	flex: 1 0 auto;
 }
 
 .icon-block {
@@ -36,6 +36,7 @@ div.spa-section {
 	width: 100%;
 	min-height: 75vh;
 	display: none;
+	padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 div.spa-section.spa-active {
@@ -45,6 +46,7 @@ div.spa-section.spa-active {
 .card .card-image img.rolecards {
 	width: initial;
     max-height: 300px;
+    max-width: 100%;
     margin-right: auto;
     margin-left: auto;
 }
@@ -81,4 +83,29 @@ div#iosinstallmodal.modal .modal-content {
 
 div.section.readinesscards div.card-image {
 	padding-top: 10px;
+}
+
+footer.page-footer a {
+	color: #ffffff;
+}
+
+ul#nav-mobile {
+    padding-top: env(safe-area-inset-top);
+    padding-left: env(safe-area-inset-left);
+}
+
+footer.page-footer {
+    padding-bottom:  env(safe-area-inset-bottom);
+}
+
+div#iphonexnotchbar {
+    height: env(safe-area-inset-top);
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+}
+
+nav {
+    top: env(safe-area-inset-top);
+    position: relative;
 }

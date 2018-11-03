@@ -3,6 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends CI_Controller {
 
+	public function __construct()
+    {
+        parent::__construct();
+		$this->load->model('data_model');
+    }
+
 	/**
 	 * Index Page for this controller.
 	 *
@@ -20,12 +26,15 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
+		$data['cutover'] = $this->data_model->get_cutover();
+		$data['readiness'] = $this->data_model->get_readiness();
+
 		$this->load->view('header');
 		$this->load->view('loading');
 		$this->load->view('home');
 		$this->load->view('about');
-		$this->load->view('cutover');
-		$this->load->view('gettingready');
+		$this->load->view('cutover', $data);
+		$this->load->view('gettingready', $data);
 		$this->load->view('contact');
 		$this->load->view('footer');
 	}

@@ -35,130 +35,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div id="cutover-plan" class="col s12">
           <h4>Go Live Plan</h4>
           <h5>Which systems will go down and when?</h5>
+          <p>Saturday 17th November 2018:</p>
           <table class="responsive-table golivetable">
             <thead>
               <tr>
                 <th></th>
-                <th>Old EPR</th>
-                <th>New EPR</th>
-                <th>FirstNet</th>
-                <th>Archive</th>
-                <th>PACS</th>
+                <?php
+                foreach ($cutover['fields'] as $key => $field) {
+                  if($field=="id" || $field=="timestamp") continue;
+                  echo "<th>".$field."</th>";
+                }
+                ?>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>0200</td>
-                <td><i class="material-icons green-text">check_circle_outline</i></td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons green-text">check_circle_outline</i></td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons green-text">check_circle_outline</i></td>
-              </tr>
-              <tr>
-                <td>0300</td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons orange-text tooltipped" data-position="bottom" data-tooltip="TBC">check_circle_outline</i></td>
-                <td><i class="material-icons green-text">check_circle_outline</i></td>
-              </tr>
-              <tr>
-                <td>0400</td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons orange-text tooltipped" data-position="bottom" data-tooltip="TBC">check_circle_outline</i></td>
-                <td><i class="material-icons green-text">check_circle_outline</i></td>
-              </tr>
-              <tr>
-                <td>0500</td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons orange-text tooltipped" data-position="bottom" data-tooltip="TBC">check_circle_outline</i></td>
-                <td><i class="material-icons green-text">check_circle_outline</i></td>
-              </tr>
-              <tr>
-                <td>0600</td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons orange-text tooltipped" data-position="bottom" data-tooltip="TBC">check_circle_outline</i></td>
-                <td><i class="material-icons green-text">check_circle_outline</i></td>
-              </tr>
-              <tr>
-                <td>0700</td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons orange-text tooltipped" data-position="bottom" data-tooltip="TBC">check_circle_outline</i></td>
-                <td><i class="material-icons green-text">check_circle_outline</i></td>
-              </tr>
-              <tr>
-                <td>0800</td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons orange-text tooltipped" data-position="bottom" data-tooltip="TBC">check_circle_outline</i></td>
-                <td><i class="material-icons green-text">check_circle_outline</i></td>
-              </tr>
-              <tr>
-                <td>0900</td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons orange-text tooltipped" data-position="bottom" data-tooltip="TBC">check_circle_outline</i></td>
-                <td><i class="material-icons green-text">check_circle_outline</i></td>
-              </tr>
-              <tr>
-                <td>1000</td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons orange-text tooltipped" data-position="bottom" data-tooltip="TBC">check_circle_outline</i></td>
-                <td><i class="material-icons green-text">check_circle_outline</i></td>
-              </tr>
-              <tr>
-                <td>1100</td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons orange-text tooltipped" data-position="bottom" data-tooltip="TBC">check_circle_outline</i></td>
-                <td><i class="material-icons green-text">check_circle_outline</i></td>
-              </tr>
-              <tr>
-                <td>1200</td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons orange-text tooltipped" data-position="bottom" data-tooltip="TBC">check_circle_outline</i></td>
-                <td><i class="material-icons green-text">check_circle_outline</i></td>
-              </tr>
-              <tr>
-                <td>1300</td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons red-text">highlight_off</i></td>
-                <td><i class="material-icons green-text">check_circle_outline</i></td>
-                <td><i class="material-icons orange-text tooltipped" data-position="bottom" data-tooltip="TBC">check_circle_outline</i></td>
-                <td><i class="material-icons green-text">check_circle_outline</i></td>
-              </tr>
-              <tr>
-                <td>1400</td>
-                <td><i class="material-icons orange-text tooltipped" data-position="bottom" data-tooltip="Only available to endorse old results">info</i></td>
-                <td><i class="material-icons green-text">check_circle_outline</i></td>
-                <td><i class="material-icons green-text">check_circle_outline</i></td>
-                <td><i class="material-icons green-text">check_circle_outline</i></td>
-                <td><i class="material-icons green-text">check_circle_outline</i></td>
-              </tr>
-              <tr>
-                <td>1500</td>
-                <td><i class="material-icons orange-text tooltipped" data-position="bottom" data-tooltip="Only available to endorse old results">info</i></td>
-                <td><i class="material-icons green-text">check_circle_outline</i></td>
-                <td><i class="material-icons green-text">check_circle_outline</i></td>
-                <td><i class="material-icons green-text">check_circle_outline</i></td>
-                <td><i class="material-icons green-text">check_circle_outline</i></td>
-              </tr>
+              <?php
+              foreach ($cutover['data'] as $key => $value) {
+                echo "<tr><td>".date("H:i", strtotime($value['timestamp']))."</td>";
+                foreach ($cutover['fields'] as $key => $field) {
+                  if($field=="id" || $field=="timestamp") continue;
+                  echo "<td>";
+                  switch ($value[$field]) {
+                    case "Y":
+                      echo '<i class="material-icons green-text">check_circle_outline</i>';
+                      break;
+                    case "M":
+                      echo '<i class="material-icons orange-text tooltipped" data-position="bottom" data-tooltip="Only available to endorse old results">info</i>';
+                      break;
+                    case "N":
+                      echo '<i class="material-icons red-text">highlight_off</i>';
+                      break;
+                  }
+                  echo "</td>";
+                }
+                echo "</tr>";
+              }
+              ?>
+              
             </tbody>
           </table>
 
