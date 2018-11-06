@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
   </div>
   <div id="iphonexnotchbar" class="light-blue lighten-1"></div>
-  <nav class="light-blue lighten-1" role="navigation" id="navbar">
+  <nav class="light-blue lighten-1 headernav" role="navigation" id="navbar">
     <div class="nav-wrapper container"><a id="logo-container" class="brand-logo"><img src="<?php echo base_url('assets/site_favicon/mstile-70x70.png'); ?>" /></a>
       <ul class="right hide-on-med-and-down">
         <li><a data-route="home">Home</a></li>

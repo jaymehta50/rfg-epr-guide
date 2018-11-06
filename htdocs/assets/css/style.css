@@ -105,7 +105,39 @@ div#iphonexnotchbar {
     z-index: 2;
 }
 
-nav {
+nav.headernav {
     top: env(safe-area-inset-top);
     position: relative;
+}
+
+nav.breadcrumbnav {
+    min-height: 42px;
+    line-height: 42px;
+    padding: 0 16px;
+    height: initial;
+}
+
+a.breadcrumb {
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button.btn.ssca {
+	min-height: 36px;
+    height: auto;
+    letter-spacing: initial;
+    line-height: 24px;
+    padding: 6px 16px;
+}
+
+div.section.sscq {
+	display: none;
+}
+
+div.section.sscq.sscq-active {
+	display: block;
+}
+
+span.ssctext {
+    font-weight: 500;
 }

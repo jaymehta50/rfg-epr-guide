@@ -28,6 +28,8 @@ class Home extends CI_Controller {
 	{
 		$data['cutover'] = $this->data_model->get_cutover();
 		$data['readiness'] = $this->data_model->get_readiness();
+		$data['sscqs'] = $this->data_model->get_ssc_qs();
+		$data['ssc'] = $this->data_model->get_ssc();
 
 		$this->load->view('header');
 		$this->load->view('loading');
@@ -36,6 +38,7 @@ class Home extends CI_Controller {
 		$this->load->view('cutover', $data);
 		$this->load->view('gettingready', $data);
 		$this->load->view('contact');
+		$this->load->view('workflows', $data);
 		$this->load->view('footer');
 	}
 }

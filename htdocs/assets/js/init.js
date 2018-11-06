@@ -156,6 +156,7 @@ function showSPA(spaname) {
         spaname = "home";
     }
     document.title = "RFG EPR Guide - " + spaname.charAt(0).toUpperCase() + spaname.slice(1);
+    window.scrollTo(0,0);
 
     // If this section has corresponding links in navbar, make them active
     var matches = document.querySelectorAll("a[data-route]");
@@ -225,4 +226,17 @@ function storageAvailable(type) {
             // acknowledge QuotaExceededError only if there's something already stored
             storage.length !== 0;
     }
+}
+
+function nextquestion(i, j) {
+    var els = document.querySelectorAll('div#sscq'+j+' ~ div.sscq-active');
+    if (els.length > 0) {
+        console.log(els);
+        for (var k = 0; k < els.length; k++) {
+            els[k].classList.remove("sscq-active");
+        }
+    }
+    
+    document.getElementById("sscq"+i).classList.add("sscq-active");
+    window.scrollBy(0, document.getElementById("sscq"+j).offsetHeight);
 }
