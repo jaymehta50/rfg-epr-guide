@@ -16,6 +16,12 @@ class Data_model extends CI_Model {
     	return $result;
     }
 
+    public function get_transcription()
+    {
+        $query = $this->db->order_by('starttime','ASC')->order_by('endtime','ASC')->order_by('site','ASC')->order_by('ward','ASC')->get('transcription');
+        return $query->result_array();
+    }
+
     public function get_readiness()
     {
     	$query = $this->db->get('readiness');

@@ -51,6 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <li><a data-route="home">Home</a></li>
         <li><a data-route="about">About</a></li>
         <li><a data-route="readiness">My Readiness</a></li>
+        <li><a data-route="workflows">Workflows</a></li>
         <li><a data-route="cutover">Cutover</a></li>
         <li><a data-route="contact">Contact</a></li>
       </ul>
@@ -61,6 +62,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <li><a data-route="home" class="sidenav-close">Home</a></li>
         <li><a data-route="about" class="sidenav-close">About</a></li>
         <li><a data-route="readiness" class="sidenav-close">My Readiness</a></li>
+        <li><a data-route="workflows" class="sidenav-close">Workflows</a></li>
         <li><a data-route="cutover" class="sidenav-close">Cutover Plans</a></li>
         <li><a data-route="contact" class="sidenav-close">Contact Us</a></li>
       </ul>

@@ -30,6 +30,7 @@ class Home extends CI_Controller {
 		$data['readiness'] = $this->data_model->get_readiness();
 		$data['sscqs'] = $this->data_model->get_ssc_qs();
 		$data['ssc'] = $this->data_model->get_ssc();
+		$data['wards'] = $this->data_model->get_transcription();
 
 		$this->load->view('header');
 		$this->load->view('loading');

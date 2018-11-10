@@ -5,9 +5,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br><br>
-      <h1 class="header center orange-text">Royal Free EPR Guide</h1>
+      <h1 class="header center orange-text">Royal Free London EPR Guide</h1>
       <div class="row center">
-        <h5 class="header col s12 light">A guide to Royal Free's new electronic patient record (EPR) software.</h5>
+        <h5 class="header col s12 light">A guide to Royal Free London's new electronic patient record (EPR) software.</h5>
       </div>
       <div class="row center">
         <h4>We are still in alpha-testing!</h4>

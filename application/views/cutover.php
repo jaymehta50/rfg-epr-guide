@@ -16,9 +16,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="section">
 
         <ul class="tabs tabs-fixed-width tab-demo z-depth-1">
-          <li class="tab"><a href="#cutover-what">What?</a></li>
-          <li class="tab"><a href="#cutover-plan">Plan</a></li>
-          <li class="tab"><a href="#cutover-live">Live Updates</a></li>
+          <li class="tab"><a href="#cutover-what">About</a></li>
+          <li class="tab"><a href="#cutover-plan">Systems</a></li>
+          <li class="tab"><a href="#cutover-live">Wards</a></li>
         </ul>
         <div id="cutover-what" class="col s12">
           <h4>What is Cutover?</h4>
@@ -43,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?php
                 foreach ($cutover['fields'] as $key => $field) {
                   if($field=="id" || $field=="timestamp") continue;
-                  echo "<th>".$field."</th>";
+                  echo "<th>".implode('<span class="hide-on-small-only"> </span><br class="show-on-small hide-on-med-and-up">', explode(' ', $field))."</th>";
                 }
                 ?>
               </tr>
@@ -78,12 +78,59 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
         <div id="cutover-live" class="col s12">
           <div class="section">
-            <h4>Live Updates</h4>
-            <p>On go-live day regular updates will be posted here from the command teams to keep you up to date.</p>
+            <h4>Ward Transcription</h4>
+            <p>On go-live day, all of the drug charts on every ward will be transcribed into electronic prescriptions by a team of doctors and pharmacists.</p>
+            <p>This is the timetable for the transcription - please note that this will change, check back here regularly to get an update:</p>
           </div>
-          <div class="section center" id="divgetnotifications" style="display: none;">
-            <p>Click the button below to receive a live notification with each update:</p>
-            <a class="waves-effect waves-light btn disabled" id="btngetnotifications"><i class="material-icons left">notifications_active</i>Get Notifications</a>
+          <div class="section">
+            <table class="centered">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Start Time</th>
+                  <th>Finish Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                foreach ($wards as $key => $ward) {
+                  echo '<tr>
+                  <th>'.$ward['site'].'<span class="hide-on-small-only"> - </span><br class="show-on-small hide-on-med-and-up">'.$ward['ward'].'</th>
+                  <td class="';
+
+                  if((strtotime($ward['starttime'])+($ward['startdelay']*60)) <= strtotime("now") && (strtotime($ward['endtime'])+($ward['enddelay']*60)) <= strtotime("now")) echo 'green lighten-3';
+                  elseif((strtotime($ward['starttime'])+($ward['startdelay']*60)) <= strtotime("now") && (strtotime($ward['endtime'])+($ward['enddelay']*60)) > strtotime("now")) echo 'amber lighten-3';
+                  elseif($ward['startdelay']>0) echo 'red lighten-4';
+                  elseif($ward['startdelay']<0) echo 'lime lighten-4';
+
+                  echo '">'.date("D H:i", strtotime($ward['starttime']));
+
+                  if($ward['startdelay']>0 && (strtotime($ward['starttime'])+($ward['startdelay']*60)) <= strtotime("now")) echo '<br /><span class="red-text text-darken-4">We started '.$ward['startdelay'].' mins late</span>';
+                  elseif($ward['startdelay']<0 && (strtotime($ward['starttime'])+($ward['startdelay']*60)) <= strtotime("now")) echo '<br /><span class="green-text text-darken-4">We started '.(-1*$ward['startdelay']).' mins early</span>';
+                  elseif($ward['startdelay']>0) echo '<br /><span class="red-text text-darken-4">We\'ll be '.$ward['startdelay'].' mins late</span>';
+                  elseif($ward['startdelay']<0) echo '<br /><span class="green-text text-darken-4">We\'ll be '.(-1*$ward['startdelay']).' mins early</span>';
+
+                  echo '</td>
+                  <td class="';
+
+                  if((strtotime($ward['starttime'])+($ward['startdelay']*60)) <= strtotime("now") && (strtotime($ward['endtime'])+($ward['enddelay']*60)) <= strtotime("now")) echo 'green lighten-3';
+                  elseif((strtotime($ward['starttime'])+($ward['startdelay']*60)) <= strtotime("now") && (strtotime($ward['endtime'])+($ward['enddelay']*60)) > strtotime("now")) echo 'amber lighten-3';
+                  elseif($ward['enddelay']>0) echo 'red lighten-4';
+                  elseif($ward['enddelay']<0) echo 'lime lighten-4';
+
+                  echo '">'.date("D H:i", strtotime($ward['endtime']));
+
+                  if($ward['enddelay']>0 && (strtotime($ward['endtime'])+($ward['enddelay']*60)) <= strtotime("now")) echo '<br /><span class="red-text text-darken-4">We finished '.$ward['startdelay'].' mins late</span>';
+                  elseif($ward['enddelay']<0 && (strtotime($ward['endtime'])+($ward['enddelay']*60)) <= strtotime("now")) echo '<br /><span class="green-text text-darken-4">We finished '.(-1*$ward['startdelay']).' mins early</span>';
+                  elseif($ward['enddelay']>0) echo '<br /><span class="red-text text-darken-4">We\'ll finish '.$ward['enddelay'].' mins late</span>';
+                  elseif($ward['enddelay']<0) echo '<br /><span class="green-text text-darken-4">We\'ll finish '.(-1*$ward['enddelay']).' mins early</span>';
+
+                  echo '</td>
+                  </tr>';
+                }
+                ?>
+              </tbody>
+            </table>
           </div>
         </div>
 
