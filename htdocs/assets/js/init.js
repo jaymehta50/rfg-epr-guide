@@ -35,9 +35,11 @@ document.addEventListener('DOMContentLoaded', function() {
         M.Modal.getInstance(document.getElementById("iosinstallmodal")).open();
     }
 
-    let deferredPrompt;
+    document.getElementById("autocomplete-input").addEventListener("input", findQrg());
 
-    window.addEventListener('beforeinstallprompt', (e) => {
+    var deferredPrompt;
+
+    window.addEventListener('beforeinstallprompt', function (e) {
         // Prevent Chrome 67 and earlier from automatically showing the prompt
         e.preventDefault();
         // Stash the event so it can be triggered later.
@@ -47,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById("navbar").classList.add("stylewithinstallprompt");
     });
 
-    document.getElementById("androidprompt").addEventListener('click', (e) => {
+    document.getElementById("androidprompt").addEventListener('click', function (e) {
         // hide our user interface that shows our A2HS button
         document.getElementById("androidinstall").style.display = "none";
         document.getElementById("navbar").classList.remove("stylewithinstallprompt");
@@ -55,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         deferredPrompt.prompt();
         // Wait for the user to respond to the prompt
         deferredPrompt.userChoice
-            .then((choiceResult) => {
+            .then(function (choiceResult) {
                 if (choiceResult.outcome === 'accepted') {
                     console.log('User accepted the A2HS prompt');
                 } else {
@@ -239,4 +241,21 @@ function nextquestion(i, j) {
     
     document.getElementById("sscq"+i).classList.add("sscq-active");
     window.scrollBy(0, document.getElementById("sscq"+j).offsetHeight);
+}
+
+function findQrg() {
+    var searchstr = document.getElementById("autocomplete-input").value;
+
+    var matches = document.querySelectorAll("div[data-search]");
+    for (var i = 0; i < matches.length; i++) {
+        if(searchstr=="") matches[i].style.display = "block";
+        else {
+            if(matches[i].getAttribute("data-search").toUpperCase().indexOf(searchstr.toUpperCase()) > -1) {
+                matches[i].style.display = "block";
+            }
+            else {
+                matches[i].style.display = "none";
+            }
+        }
+    }
 }

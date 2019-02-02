@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <ul class="tabs tabs-fixed-width tab-demo z-depth-1">
           <li class="tab"><a href="#cutover-what">About</a></li>
           <li class="tab"><a href="#cutover-plan">Systems</a></li>
-          <li class="tab"><a href="#cutover-live">Wards</a></li>
+          <!-- <li class="tab"><a href="#cutover-live">Wards</a></li> -->
         </ul>
         <div id="cutover-what" class="col s12">
           <h4>What is Cutover?</h4>
@@ -95,7 +95,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?php
                 foreach ($wards as $key => $ward) {
                   echo '<tr>
-                  <th>'.$ward['site'].'<span class="hide-on-small-only"> - </span><br class="show-on-small hide-on-med-and-up">'.$ward['ward'].'</th>
+                  <th>'.$ward['site'].'<span class="hide-on-small-only"> - </span><br class="show-on-small hide-on-med-and-up">'.$ward['ward'];
+                  if((strtotime($ward['starttime'])+($ward['startdelay']*60)) <= strtotime("now") && (strtotime($ward['endtime'])+($ward['enddelay']*60)) <= strtotime("now")) echo '<br /><span class="green-text text-darken-4"><i class="material-icons">check_circle_outline</i> Completed</span>';
+                  echo '</th>
                   <td class="';
 
                   if((strtotime($ward['starttime'])+($ward['startdelay']*60)) <= strtotime("now") && (strtotime($ward['endtime'])+($ward['enddelay']*60)) <= strtotime("now")) echo 'green lighten-3';
@@ -120,8 +122,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                   echo '">'.date("D H:i", strtotime($ward['endtime']));
 
-                  if($ward['enddelay']>0 && (strtotime($ward['endtime'])+($ward['enddelay']*60)) <= strtotime("now")) echo '<br /><span class="red-text text-darken-4">We finished '.$ward['startdelay'].' mins late</span>';
-                  elseif($ward['enddelay']<0 && (strtotime($ward['endtime'])+($ward['enddelay']*60)) <= strtotime("now")) echo '<br /><span class="green-text text-darken-4">We finished '.(-1*$ward['startdelay']).' mins early</span>';
+                  if($ward['enddelay']>0 && (strtotime($ward['endtime'])+($ward['enddelay']*60)) <= strtotime("now")) echo '<br /><span class="red-text text-darken-4">We finished '.$ward['enddelay'].' mins late</span>';
+                  elseif($ward['enddelay']<0 && (strtotime($ward['endtime'])+($ward['enddelay']*60)) <= strtotime("now")) echo '<br /><span class="green-text text-darken-4">We finished '.(-1*$ward['enddelay']).' mins early</span>';
                   elseif($ward['enddelay']>0) echo '<br /><span class="red-text text-darken-4">We\'ll finish '.$ward['enddelay'].' mins late</span>';
                   elseif($ward['enddelay']<0) echo '<br /><span class="green-text text-darken-4">We\'ll finish '.(-1*$ward['enddelay']).' mins early</span>';
 

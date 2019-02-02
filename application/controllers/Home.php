@@ -31,6 +31,7 @@ class Home extends CI_Controller {
 		$data['sscqs'] = $this->data_model->get_ssc_qs();
 		$data['ssc'] = $this->data_model->get_ssc();
 		$data['wards'] = $this->data_model->get_transcription();
+		$data['how'] = $this->data_model->get_howto();
 
 		$this->load->view('header');
 		$this->load->view('loading');
@@ -40,6 +41,12 @@ class Home extends CI_Controller {
 		$this->load->view('gettingready', $data);
 		$this->load->view('contact');
 		$this->load->view('workflows', $data);
+		$this->load->view('howto', $data);
 		$this->load->view('footer');
+	}
+
+	public function rundataqrginsertjfdfsfdrkgnkudrhsfn()
+	{
+		$this->data_model->load_qrgs();
 	}
 }

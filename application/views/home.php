@@ -9,59 +9,69 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="row center">
         <h5 class="header col s12 light">A guide to Royal Free London's new electronic patient record (EPR) software.</h5>
       </div>
-      <div class="row center">
-        <h4>We are still in alpha-testing!</h4>
-        <a href="https://goo.gl/forms/qJKhvxfqK2HdO7Ix2" target="_blank" id="download-button" class="btn-large waves-effect waves-light orange">Submit Feedback</a>
-      </div>
-      <br><br>
-
     </div>
   </div>
 
 
   <div class="container">
-    <div class="section">
+    <div class="section center">
 
       <!--   Icon Section   -->
       <div class="row">
-        <div class="col s12 m4">
+        <div class="col s12 l4">
           <div class="icon-block">
             <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
             <h5 class="center">What is EPR?</h5>
 
             <p class="light">EPR is a single patient record that will be accessible across all our hospital sites and will replace paper records over the next 12 months.</p>
-            <p class="light">It combines the best of what current systems do – and more – improving communication, documentation and care.</p>
+            <a class="waves-effect waves-light btn" data-route="about">Find Out More</a>
           </div>
         </div>
 
-        <div class="col s12 m4">
+        <div class="col s12 l4">
           <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
-            <h5 class="center">What Will EPR Do?</h5>
-            <ul class="light browser-default">
-              <li>Electronic prescribing and medicines administration (EPMA)</li>
-              <li>Clinical documentation e.g. assessments, discharge summaries</li>
-              <li>Maternity, anaesthesia and theatres</li>
-              <li>Medical device integration e.g. vital signs, infusion pumps</li>
-              <li>Patient portal</li>
-              <li>Health Information Exchange (HIE) to share records with partners</li>
-            </ul>
+            <h2 class="center light-blue-text"><i class="material-icons">perm_identity</i></h2>
+            <h5 class="center">Are You Ready?</h5>
+            <p class="light">Complete your "EPR Passport" here to make sure you're ready for new EPR.</p>
+            <a class="waves-effect waves-light btn" data-route="readiness">My Readiness</a>
           </div>
         </div>
 
-        <div class="col s12 m4">
+        <div class="col s12 l4">
           <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-            <h5 class="center">What does EPR mean for patients?</h5>
+            <h2 class="center light-blue-text"><i class="material-icons">info</i></h2>
+            <h5 class="center">How To Guides</h5>
 
-            <p class="light">EPR will enable us to offer our patients safer care and a much smoother experience.</p>
-            <p class="light">Patients often complain that they are asked to give their details multiple times. That will become a thing of the past.</p>
-            <p class="light">In addition, patients will be able to view their medical records through a patient portal, ensuring they are fully involved in their health and care.</p>
+            <p class="light">Not sure how to do something on new EPR?</p>
+            <a class="waves-effect waves-light btn" data-route="howto">Click here</a>
           </div>
         </div>
       </div>
 
+      <div class="row">
+        <div class="col s12 l4 offset-l2">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">work</i></h2>
+            <h5 class="center">Workflows</h5>
+
+            <p class="light">What will I be doing differently?</p>
+            <p class="light">To see how your usual workflows might change, click here:</p>
+            <a class="waves-effect waves-light btn" data-route="workflows">Workflows</a>
+          </div>
+        </div>
+
+        <div class="col s12 l4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">trending_up</i></h2>
+            <h5 class="center">Go Live</h5>
+            <p class="light">To find out exactly what if happening exactly what will happen during the go-live weekend.</p>
+            <a class="waves-effect waves-light btn" data-route="cutover">Cutover</a>
+          </div>
+        </div>
+      </div>
+
+
+
     </div>
-    <br><br>
   </div>
 </div>

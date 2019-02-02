@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, viewport-fit=cover">
-  <title>RFG EPR Guide</title>
+  <title>RFG EPR Guide - Beta Testing</title>
 
   <link rel="manifest" href="manifest.json">
   <!-- favicons -->
@@ -34,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
   <!-- CSS  -->
-  <link crossorigin="anonymous" href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="<?php echo base_url('assets/css/materialize.min.css'); ?>" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="<?php echo base_url('assets/css/style.css'); ?>" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
@@ -51,6 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <li><a data-route="home">Home</a></li>
         <li><a data-route="about">About</a></li>
         <li><a data-route="readiness">My Readiness</a></li>
+        <li><a data-route="howto">How To</a></li>
         <li><a data-route="workflows">Workflows</a></li>
         <li><a data-route="cutover">Cutover</a></li>
         <li><a data-route="contact">Contact</a></li>
@@ -62,6 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <li><a data-route="home" class="sidenav-close">Home</a></li>
         <li><a data-route="about" class="sidenav-close">About</a></li>
         <li><a data-route="readiness" class="sidenav-close">My Readiness</a></li>
+        <li><a data-route="howto" class="sidenav-close">How To Guides</a></li>
         <li><a data-route="workflows" class="sidenav-close">Workflows</a></li>
         <li><a data-route="cutover" class="sidenav-close">Cutover Plans</a></li>
         <li><a data-route="contact" class="sidenav-close">Contact Us</a></li>

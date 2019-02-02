@@ -17,13 +17,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <h3>Technical problems?</h3>
         <p>Please contact the IT Service Desk:</p>
-        <p>Extension 82020 - OR - via online Self Service Portal</p>
+        <p>Extension 82020 - OR - via online <a href="https://royalfreelondon.freshservice.com/support/home" target="_blank">IT Service Desk</a></p>
 
         <hr />
 
         <h3>Clinical concerns about new EPR?</h3>
         <p>Please contact one of the informatics team using the contact details on Freenet</p>
-        <p><a href="http://freenet/freenetcms/default.aspx?s=65&p=2877&m=4017" target="_blank">http://freenet/freenetcms/default.aspx?s=65&p=2877&m=4017</a></p>
+        <p><a href="http://freenet/freenetcms/default.aspx?&s=74&p=2864&m=4003​" target="_blank">http://freenet/freenetcms/default.aspx?&s=74&p=2864&m=4003​</a></p>
 
         <hr />
 

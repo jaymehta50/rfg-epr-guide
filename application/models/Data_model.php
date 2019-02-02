@@ -22,6 +22,12 @@ class Data_model extends CI_Model {
         return $query->result_array();
     }
 
+    public function get_howto()
+    {
+        $query = $this->db->order_by('media','asc')->order_by('activity', 'asc')->order_by('name', 'asc')->get('howto');
+        return $query->result_array();
+    }
+
     public function get_readiness()
     {
     	$query = $this->db->get('readiness');
@@ -67,5 +73,38 @@ class Data_model extends CI_Model {
         }
 
         return $out;
+    }
+
+    public function load_qrgs()
+    {
+        $files = array_diff( scandir("assets/qrgs"), array(".", "..") );
+
+        foreach ($files as $key => $value) {
+            if(! preg_match("/.*\.pdf/", $value)) continue;
+
+            $insert = array(
+                'media' => 'Quick Guides',
+                'activity' => 'Quick Reference Guides',
+                'name' => preg_replace("/\.pdf/", "", preg_replace("/EPRQRG\d*\s*.\s*/", "", $value)),
+                'link' => 'https://royalfree.info/assets/qrgs/'.$value
+            );
+
+            $matches = array();
+
+            preg_match("/EPRQRG\d*\s*.\s*/", $value, $matches);
+            $erpno = $matches[0];
+
+            $query = $this->db->like('link', $erpno)->get('howto');
+            if($query->num_rows() != 0) {
+                $result = $query->row_array();
+                $this->db->where('id', $result['id'])->update('howto', $insert);
+            }
+            else {
+                $this->db->insert('howto', $insert);
+            }
+
+        }
+
+        return $files;
     }
 }
