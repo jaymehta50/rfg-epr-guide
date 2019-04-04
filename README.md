@@ -30,4 +30,6 @@ Finally the views are held in the application/views folder.
 
 All the files in the system folder are from CodeIgniter, and you may wish to update these if this repo is outdated!
 
-Finally the HTML, CSS and and Javascript is held in the htdocs folder (and this folder was our web server's root folder, so that the application and system folders were securely hidden away from public access).
+The HTML, CSS and and Javascript is held in the htdocs folder (and this folder was our web server's root folder, so that the application and system folders were securely hidden away from public access).
+
+Finally, the web server's database has been exported to a SQL file here, which demonstrates the expected structure for the Data_model.php file and includes data from the latest royalfree.info web app.
