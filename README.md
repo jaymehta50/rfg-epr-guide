@@ -1,6 +1,8 @@
 # rfg-epr-guide
 Royal Free Group EPR Guide
 
+![Demo Image](https://github.com/jaymehta50/rfg-epr-guide/blob/master/demo.png)
+
 This is the source code for the Royal Free Group's EPR Guide App - an internal app designed to help staff transition to working with a new Electronic Patient Record system.
 
 This is a progressive web app (PWA), not a native mobile application. However as described extensively at https://developers.google.com/web/progressive-web-apps/ it is quick to develop and capable of everything we wanted to achieve with minimal overheads.
