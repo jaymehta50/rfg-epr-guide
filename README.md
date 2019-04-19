@@ -19,7 +19,8 @@ It is based on the following frameworks:
 
 The Javascript code required to make the PWA functionality work was written in-house, with significant instruction from Google's https://developers.google.com/web/progressive-web-apps/checklist
 
-Please note - this source code is provided as is with the intention of allowing other teams to use it as inspiration or a start point of their projects.
+# Disclaimer
+This source code is provided as is with the intention of allowing other teams to use it as inspiration or a start point of their projects.
 It comes with no commitments for ongoing support, bug checking or other features, and the authors cannot accept any responsibility for its use in other applications or settings.
 
 This code is provided open source under the GNU General Public License v3.0.
